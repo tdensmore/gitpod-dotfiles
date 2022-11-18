@@ -2,11 +2,15 @@
 
 TMPDIR=$(mktemp -d)
 
-CURRENT=$PWD
-echo "Current DIR : $CURRENT"
+CURRENT_DIR=$PWD
+echo "CURRENT_DIR : $CURRENT"
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+echo "SCRIPT_DIR : $SCRIPT_DIR"
+
 # cd $TMPDIR
 
-for script in $CURRENT/scripts/*.sh; do
+for script in $SCRIPT_DIR/scripts/*.sh; do
   bash "$script"
 done
 
